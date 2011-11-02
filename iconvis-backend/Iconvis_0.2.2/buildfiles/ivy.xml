@@ -1,0 +1,71 @@
+<ivy-module version="1.0">
+	<info organisation="csipiemonte" module="iconviz" />
+	<dependencies>
+		<dependency org="apache" name="commons-beanutils" rev="1.6"/>
+		<dependency org="apache" name="commons-collections" rev="3.2"/>
+		<dependency org="apache" name="commons-digester" rev="1.8"/>
+		<dependency org="apache" name="commons-logging" rev="1.1"/>
+
+		<dependency org="others" name="freemarker" rev="2.3.8"/>
+		<dependency org="apache" name="jstl" rev="1.0"/>
+		<dependency org="opensymphony" name="ognl" rev="2.6.10"/>
+
+		<dependency org="others" name="spring" rev="2.0.7">
+			<artifact name="aopalliance-1.0" type="jar" />
+		</dependency>
+
+		<dependency org="others" name="spring" rev="2.0.7">
+			<artifact name="spring-beans-2.0.7" type="jar" />
+		</dependency>
+
+		<dependency org="others" name="spring" rev="2.0.7">
+			<artifact name="spring-context-2.0.7" type="jar" />
+		</dependency>
+
+		<dependency org="others" name="spring" rev="2.0.7">
+			<artifact name="spring-core-2.0.7" type="jar" />
+		</dependency>
+
+		<dependency org="others" name="spring" rev="2.0.7">
+			<artifact name="spring-web-2.0.7" type="jar" />
+		</dependency>
+
+		<!-- si utilizza la versione "csipiemonte" di struts2-core per poter
+		     utilizzare ognl-2.6.10 -->
+		<dependency org="csipiemonte" name="struts2-core" rev="2.0.11.2"/>
+		<dependency org="apache" name="struts2-spring-plugin" rev="2.0.11.2"/>
+		<dependency org="opensymphony" name="xwork" rev="2.0.5"/>
+
+		<dependency org="sun" name="servlet" rev="2.4"/>
+		<dependency org="sun" name="servlet-jsp" rev="2.0"/>
+
+		<dependency org="csipiemonte" name="util-beanlocatorfactory" rev="1.0.1"/>
+		<dependency org="csipiemonte" name="util-struts2-csitemplate" rev="1.0.1"/>
+
+		<dependency org="others" name="spring" rev="2.0.7">
+			<artifact name="spring-aop-2.0.7" type="jar" />
+		</dependency>
+
+		<dependency org="others" name="spring" rev="2.0.7">
+			<artifact name="spring-remoting-2.0.7" type="jar" />
+		</dependency>
+
+		<dependency org="csipiemonte" name="util-perf" rev="1.0.1"/>
+		<dependency org="apache" name="log4j" rev="1.2.8"/>
+
+
+    <dependency org="others" name="spring" rev="2.0.7">
+      <artifact name="spring-jdbc-2.0.7" type="jar" />
+    </dependency>
+
+    <dependency org="others" name="spring" rev="2.0.7">
+      <artifact name="spring-dao-2.0.7" type="jar" />
+    </dependency>
+		<dependency org="others" name="jboss" rev="4.3.0">
+			<artifact name="jboss-j2ee-4.3.0" type="jar" />
+		</dependency>
+
+
+	</dependencies>
+
+</ivy-module>

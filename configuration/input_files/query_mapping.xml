@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<mapping>
+
+<!-- 1st part: database information-->
+
+<database>
+<vendor>mysql</vendor>
+<url>jdbc:mysql://localhost:3306/iconvis</url>
+<driver>com.mysql.jdbc.Driver</driver>
+<user>iconvis</user>
+<password>iconvis</password>
+</database>
+
+<!-- 2nd part: query mapping
+
+In the SELECT clause you must specify 2 fields:
+ 
+1)a field with the complete path of the content; 
+2)a field with the name or title of the content you want to display.
+
+You can set query to classes, like in the uncommented tag <class> below: in this case the query will be set on every individual of the class.
+Or you can set query directly to individuals, like in the commented tag <indiv>: in this case the query will be set only on that individual.
+"#default#" will be sobstituted by ICONVIS with the label of the single nodes (in the case of the classes, with the label of the singles instances of the class. 
+-->
+
+<class id="Thing">
+<class_query>SELECT path_image, title_image FROM images WHERE subject_image="#default#" UNION SELECT path_video, title_video FROM videos WHERE subject_video="#default#" UNION SELECT path_document, title_document FROM documents WHERE subject_document="#default#"</class_query>
+</class>
+
+<!--<indiv id="GermanShepherd">
+<indiv_query>SELECT path_image, title_image FROM images WHERE subject_image="#default#" UNION SELECT path_video, title_video FROM videos WHERE subject_video="#default#" UNION SELECT path_document, title_document FROM documents WHERE subject_document="#default#"</indiv_query>
+</indiv>-->
+
+</mapping>

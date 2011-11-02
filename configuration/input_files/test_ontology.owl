@@ -1,0 +1,541 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Ontology1306250480488 "http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:Ontology1306250480488="http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#origine -->
+
+    <owl:ObjectProperty rdf:about="#origine">
+        <rdfs:label xml:lang="en"
+            >country of origin</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#origineinv -->
+
+    <owl:ObjectProperty rdf:about="#origineinv">
+        <rdfs:label xml:lang="en">dog breed</rdfs:label>
+        <owl:inverseOf rdf:resource="#origine"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#DBpediaProp -->
+
+    <owl:DatatypeProperty rdf:about="#DBpediaProp"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#numDogs -->
+
+    <owl:DatatypeProperty rdf:about="#numDogs">
+        <rdfs:label xml:lang="en">number of dogs</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#pesomassimo -->
+
+    <owl:DatatypeProperty rdf:about="#pesomassimo">
+        <rdfs:label xml:lang="en">max weight</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_1 -->
+
+    <owl:Class rdf:about="#Concept_1"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_10 -->
+
+    <owl:Class rdf:about="#Concept_10">
+        <rdfs:subClassOf rdf:resource="#Concept_6"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_11 -->
+
+    <owl:Class rdf:about="#Concept_11">
+        <rdfs:subClassOf rdf:resource="#Concept_5"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_12 -->
+
+    <owl:Class rdf:about="#Concept_12">
+        <rdfs:subClassOf rdf:resource="#Concept_5"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_13 -->
+
+    <owl:Class rdf:about="#Concept_13">
+        <rdfs:subClassOf rdf:resource="#Concept_4"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_14 -->
+
+    <owl:Class rdf:about="#Concept_14">
+        <rdfs:subClassOf rdf:resource="#Concept_13"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_15 -->
+
+    <owl:Class rdf:about="#Concept_15">
+        <rdfs:subClassOf rdf:resource="#Concept_14"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_16 -->
+
+    <owl:Class rdf:about="#Concept_16">
+        <rdfs:subClassOf rdf:resource="#Concept_11"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_17 -->
+
+    <owl:Class rdf:about="#Concept_17">
+        <rdfs:subClassOf rdf:resource="#Concept_2"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_18 -->
+
+    <owl:Class rdf:about="#Concept_18">
+        <rdfs:subClassOf rdf:resource="#Concept_2"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_19 -->
+
+    <owl:Class rdf:about="#Concept_19">
+        <rdfs:subClassOf rdf:resource="#Concept_1"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_2 -->
+
+    <owl:Class rdf:about="#Concept_2"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_20 -->
+
+    <owl:Class rdf:about="#Concept_20">
+        <rdfs:subClassOf rdf:resource="#Concept_1"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_21 -->
+
+    <owl:Class rdf:about="#Concept_21">
+        <rdfs:subClassOf rdf:resource="#Concept_1"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_22 -->
+
+    <owl:Class rdf:about="#Concept_22">
+        <rdfs:subClassOf rdf:resource="#Concept_21"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_23 -->
+
+    <owl:Class rdf:about="#Concept_23">
+        <rdfs:subClassOf rdf:resource="#Concept_22"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_24 -->
+
+    <owl:Class rdf:about="#Concept_24">
+        <rdfs:subClassOf rdf:resource="#Concept_20"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_25 -->
+
+    <owl:Class rdf:about="#Concept_25">
+        <rdfs:subClassOf rdf:resource="#Concept_20"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_26 -->
+
+    <owl:Class rdf:about="#Concept_26">
+        <rdfs:subClassOf rdf:resource="#Concept_24"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_27 -->
+
+    <owl:Class rdf:about="#Concept_27">
+        <rdfs:subClassOf rdf:resource="#Concept_24"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_28 -->
+
+    <owl:Class rdf:about="#Concept_28">
+        <rdfs:subClassOf rdf:resource="#Concept_24"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_29 -->
+
+    <owl:Class rdf:about="#Concept_29">
+        <rdfs:subClassOf rdf:resource="#Concept_28"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_3 -->
+
+    <owl:Class rdf:about="#Concept_3"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_30 -->
+
+    <owl:Class rdf:about="#Concept_30">
+        <rdfs:subClassOf rdf:resource="#Concept_28"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_31 -->
+
+    <owl:Class rdf:about="#Concept_31">
+        <rdfs:subClassOf rdf:resource="#Concept_28"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_32 -->
+
+    <owl:Class rdf:about="#Concept_32">
+        <rdfs:subClassOf rdf:resource="#Concept_31"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_33 -->
+
+    <owl:Class rdf:about="#Concept_33">
+        <rdfs:subClassOf rdf:resource="#Concept_32"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_34 -->
+
+    <owl:Class rdf:about="#Concept_34">
+        <rdfs:subClassOf rdf:resource="#Concept_32"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_4 -->
+
+    <owl:Class rdf:about="#Concept_4">
+        <rdfs:subClassOf rdf:resource="#Concept_3"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_5 -->
+
+    <owl:Class rdf:about="#Concept_5">
+        <rdfs:subClassOf rdf:resource="#Concept_3"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_6 -->
+
+    <owl:Class rdf:about="#Concept_6">
+        <rdfs:subClassOf rdf:resource="#Concept_3"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_7 -->
+
+    <owl:Class rdf:about="#Concept_7">
+        <rdfs:subClassOf rdf:resource="#Concept_3"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_8 -->
+
+    <owl:Class rdf:about="#Concept_8">
+        <rdfs:subClassOf rdf:resource="#Concept_7"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Concept_9 -->
+
+    <owl:Class rdf:about="#Concept_9">
+        <rdfs:subClassOf rdf:resource="#Concept_7"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Country -->
+
+    <owl:Class rdf:about="#Country"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Dog -->
+
+    <owl:Class rdf:about="#Dog"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Hound -->
+
+    <owl:Class rdf:about="#Hound">
+        <rdfs:subClassOf rdf:resource="#Dog"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Sheepdog -->
+
+    <owl:Class rdf:about="#Sheepdog">
+        <rdfs:subClassOf rdf:resource="#Dog"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Watchdog -->
+
+    <owl:Class rdf:about="#Watchdog">
+        <rdfs:subClassOf rdf:resource="#Dog"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Beagle -->
+
+    <owl:Thing rdf:about="#Beagle">
+        <rdf:type rdf:resource="#Hound"/>
+        <rdfs:label xml:lang="en">Beagle</rdfs:label>
+        <pesomassimo>17 kg</pesomassimo>
+        <origine rdf:resource="#England"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Collie -->
+
+    <Sheepdog rdf:about="#Collie">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en">Collie</rdfs:label>
+        <pesomassimo>29.5 kg</pesomassimo>
+        <origine rdf:resource="#Scotland"/>
+    </Sheepdog>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Dobermann -->
+
+    <owl:Thing rdf:about="#Dobermann">
+        <rdf:type rdf:resource="#Watchdog"/>
+        <rdfs:label xml:lang="en"
+            >Doberman Pinscher</rdfs:label>
+        <pesomassimo>45 kg</pesomassimo>
+        <origine rdf:resource="#Germany"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#England -->
+
+    <Country rdf:about="#England">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en">England</rdfs:label>
+        <numDogs>6,500,000</numDogs>
+    </Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#GermanShepherd -->
+
+    <Sheepdog rdf:about="#GermanShepherd">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en">German Shepherd</rdfs:label>
+        <pesomassimo>40 kg</pesomassimo>
+        <origine rdf:resource="#Germany"/>
+    </Sheepdog>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Germany -->
+
+    <Country rdf:about="#Germany">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en">Germany</rdfs:label>
+        <numDogs>6,300,000</numDogs>
+    </Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#GoldenRetriever -->
+
+    <owl:Thing rdf:about="#GoldenRetriever">
+        <rdf:type rdf:resource="#Hound"/>
+        <rdfs:label xml:lang="en"
+            >Golden Retriever</rdfs:label>
+        <pesomassimo>32 kg</pesomassimo>
+        <origine rdf:resource="#England"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#GreatDane -->
+
+    <owl:Thing rdf:about="#GreatDane">
+        <rdf:type rdf:resource="#Watchdog"/>
+        <rdfs:label xml:lang="en">Great Dane</rdfs:label>
+        <pesomassimo>95 kg</pesomassimo>
+        <origine rdf:resource="#Germany"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#ItalianSpinone -->
+
+    <Hound rdf:about="#ItalianSpinone">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label xml:lang="en"
+            >Spinone Italiano</rdfs:label>
+        <pesomassimo>37 kg</pesomassimo>
+        <origine rdf:resource="#Italy"/>
+    </Hound>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Italy -->
+
+    <owl:Thing rdf:about="#Italy">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label xml:lang="en">Italy</rdfs:label>
+        <DBpediaProp>sparql/Italy</DBpediaProp>
+        <numDogs>7,600,000</numDogs>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/4/Ontology1306250480488.owl#Scotland -->
+
+    <owl:Thing rdf:about="#Scotland">
+        <rdf:type rdf:resource="#Country"/>
+        <rdfs:label xml:lang="en">Scotland</rdfs:label>
+        <numDogs>5,400,000</numDogs>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

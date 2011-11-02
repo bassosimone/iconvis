@@ -1,0 +1,14 @@
+<ivyconf>
+  <conf defaultCache="build/cache" defaultResolver="myUrlResolver"/>
+  <resolvers>
+    <url name="myUrlResolver">
+        <artifact pattern="http://repart.csi.it/java/${organisation}/${module}/${revision}/lib/${artifact}.${type}" />
+        <artifact pattern="http://repart.csi.it/java/${organisation}/${module}/${revision}/conf/${artifact}.${type}" />
+
+        <artifact pattern="http://repart.csi.it/java/${organisation}/${module}/lib/${artifact}.${type}" />
+
+        <ivy pattern="http://repart.csi.it/java/${organisation}/${module}/${revision}/ivy-${module}.xml" />
+        <ivy pattern="http://repart.csi.it/java/${organisation}/${module}/ivy-${module}.xml" />
+    </url>
+  </resolvers>
+</ivyconf>

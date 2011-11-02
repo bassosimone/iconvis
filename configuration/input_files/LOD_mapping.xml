@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<LODmapping>
+
+<!-- For now just the value "DBpedia" is allowed.
+If necessary, modify WHERE clause, but leave SELECT clause untouched.
+#default# will be replaced by the value of the ontology node label during ICONVIS build -->
+
+<class id="Thing">
+<class_endpoint>DBpedia</class_endpoint>
+<class_query>SELECT ?y ?z WHERE {?x rdfs:label "#default#"@en. ?x ?y ?z.}</class_query>
+</class>
+
+<indiv id="GermanShepherd">
+<indiv_endpoint>DBpedia</indiv_endpoint>
+<indiv_query>SELECT ?y ?z WHERE {?x rdfs:label "German Shepherd Dog"@en. ?x ?y ?z.}</indiv_query>
+</indiv>
+
+</LODmapping>
