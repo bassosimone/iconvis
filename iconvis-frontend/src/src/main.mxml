@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				layout="absolute"
+				xmlns:local="*"
+				color="#000000"
+	 			borderStyle="none" 
+	 			backgroundColor="#FFFFFF"
+	 			xmlns:flex="flare.flex.*"
+	 			cornerRadius="20"
+	 			horizontalScrollPolicy="off"
+	 			verticalScrollPolicy="off"
+	 			width="100%" 
+	 			height="100%"
+	 			applicationComplete="init();" >
+	 			
+	<flex:FlareVis id="fvis">
+		
+	</flex:FlareVis> 			
+				
+<!-- _________________________________ Methods for SOAP Web service_____________________________________ -->   				
+	
+	<mx:WebService id="webService">
+	
+		<mx:operation name="testResources"
+					  resultFormat="object"
+					  result="testResourcesHandler(event);"/>
+		
+		<mx:operation name="getGraphTreeData"
+					  resultFormat="object"
+					  result="graphTreeDataHandler(event);" />	
+		
+		<mx:operation name="getIndividualTypeData"
+					  resultFormat="object"
+					  result="individualTypeDataHandler(event);"/>
+		
+		<mx:operation name="getIndividualRelationsData"
+					  resultFormat="object"
+					  result="individualRelationsDataHandler(event);"/>
+		
+		<mx:operation name="getLabelMap"
+					  resultFormat="object"
+					  result="labelMapHandler(event);"/>
+		
+		<mx:operation name="getIndividualDataProperties"
+					  resultFormat="object"
+					  result="individualDataPropertiesHandler(event);"/>
+		
+		<!-- <mx:operation name="getDataFromDB"	
+		resultFormat="object"
+		result="getDataFromDBHandler(event);"/>-->
+		
+		<mx:operation name="getDataFlagsOnIndividuals"
+					  resultFormat="object"
+					  result="getDataFlagsHandler(event);"/>
+		
+		<mx:operation name="getLODQueries"
+					  resultFormat="object"
+					  result="getLODQueriesHandler(event);"/>
+		
+		<mx:operation name="isDBLodModuleActive"
+					  resultFormat="object"
+					  result="isDBLodModuleHandler(event);"/>							
+		
+		<mx:operation name="writeLog"	
+					  resultFormat="object"
+					  fault="faultHandler(event);"/> 
+		
+	</mx:WebService> 	
+		
+	<mx:Script>
+		<![CDATA[
+			import mx.logging.Log;
+			import mx.logging.LogEventLevel;
+			import mx.logging.targets.TraceTarget;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			import mx.utils.ObjectUtil;
+			
+			import ontologyDataStructures.ClassGraph;
+			
+			import views.ClassGraphView;
+			import views.LoadIndicator;
+			import views.MainView;
+			
+			private static const MAIN_BLOCK_WIDTH:int = 1280;
+			private static const MAIN_BLOCK_HEIGHT:int = 600;
+			
+			private var status:int=0;
+			private var dataParser:WebServiceDataParser;
+			private var _classes:Array;
+			private var _individuals:Array;
+			private var _relations:Array;
+			private var _labels:Array;
+			private var _individualsProp:Array;
+			private var _flagsOnIndividuals:Array;
+			private var _lodQueries:Array;
+			private var _isDbModuleActive:Boolean;
+			private var mainView:MainView;
+			private var changeViewController:ChangeViewController;
+			
+			private var logo:Loader;
+			private var logoRequest:URLRequest;
+			private var loadIndicator:LoadIndicator;
+/**
+*
+* @author Giuseppe Futia
+*
+*/	
+			private function init():void{
+				var wsdlLoader:URLLoader = new URLLoader();
+				wsdlLoader.addEventListener(Event.COMPLETE,wsdlLoaded);
+				var request:URLRequest = new URLRequest("config.xml");
+				request.method= URLRequestMethod.GET;
+				webService.addEventListener(FaultEvent.FAULT, faultHandler);
+				try{
+					wsdlLoader.load(request);
+				}catch(e:ErrorEvent){
+					trace("Unable to load config.xml");
+				}
+			}
+			
+			private function wsdlLoaded(event:Event):void{
+				var xmlLoader:URLLoader = URLLoader(event.target);
+				XML.ignoreWhitespace="true";
+				var xmlResult = new XML(xmlLoader.data);
+				webService.loadWSDL(xmlResult);
+				//addLogo();
+				addLoadIndicator();
+				webService.testResources.send();
+			}
+			
+			private function addLogo():void{
+				logo = new Loader();
+				logoRequest = new URLRequest("images/logo.png");
+				logo.load(logoRequest);
+				stage.addChild(logo);
+				logo.x = stage.width/2-101
+				logo.y = stage.height/2;
+			}
+			
+			private function addLoadIndicator():void{
+				loadIndicator = new LoadIndicator(null, 75, 75, 50, 13, 30, 6, 0xF69C46, 2);
+				stage.addChild(loadIndicator);
+				loadIndicator.x = stage.width/2;
+				loadIndicator.y = stage.height/2-60;
+			}
+				
+/**____________________________________Results handlers____________________________________________**/
+			
+			
+			private function testResourcesHandler(event:ResultEvent):void{
+	 			var checkTest:Boolean = false
+	 			checkTest = ObjectUtil.toString(event.result);
+	 			if(checkTest){
+	 				trace("Test Resources is successfull");
+	 				//webService.writeLog.send("Test Resources is successfull");
+	 				dataParser = new WebServiceDataParser();
+					webService.isDBLodModuleActive.send();
+	 			}
+	 		}
+			
+			private function isDBLodModuleHandler(event:ResultEvent):void{
+				isDbModuleActive = ObjectUtil.toString(event.result);
+				if(isDbModuleActive){
+					webService.getDataFlagsOnIndividuals.send();
+					webService.getLODQueries.send();
+				}
+				status++;
+				checkStatus();
+				webService.getGraphTreeData.send();
+				webService.getIndividualTypeData.send();
+				webService.getIndividualRelationsData.send();
+				webService.getLabelMap.send();
+			}
+	 		
+	 		private function graphTreeDataHandler(event:ResultEvent):void{
+ 				var graphTreeData:String = ObjectUtil.toString(event.result);
+ 				classes = new Array();
+ 				classes = dataParser.parseGraphTreeData(graphTreeData);
+ 				status++;
+ 				checkStatus();
+ 			}	
+			
+			private function individualTypeDataHandler(event:ResultEvent):void{
+ 				var individualsData:String = ObjectUtil.toString(event.result);
+ 				individuals = new Array();
+ 				individuals = dataParser.parseIndividualsData(individualsData);
+ 				status++;
+ 				checkStatus();
+ 			}
+ 			
+ 			private function individualRelationsDataHandler(event:ResultEvent):void{
+ 				var relationsData:String = ObjectUtil.toString(event.result);
+ 				relations = new Array();
+ 				relations = dataParser.parseRelationsData(relationsData);
+ 				status++;
+ 				checkStatus();
+ 			}
+ 			
+ 			private function labelMapHandler(event:ResultEvent):void{
+ 				var labelData:String = ObjectUtil.toString(event.result);
+ 				labels = new Array();
+ 				labels = dataParser.parseLabelData(labelData);
+ 				status++;
+ 				checkStatus();
+ 				webService.getIndividualDataProperties.send();
+ 			}
+ 			
+ 			private function individualDataPropertiesHandler(event:ResultEvent):void{
+ 				var individualsPropData:String = ObjectUtil.toString(event.result);
+ 				individualsProp = new Array();
+ 				individualsProp = dataParser.parseIndividualsProperties(individualsPropData);
+ 			}
+			
+			private function getDataFlagsHandler(event:ResultEvent):void{
+				var flagsOnIndividualsData:String = ObjectUtil.toString(event.result);
+				flagsOnIndividuals = new Array();
+				flagsOnIndividuals = dataParser.parseFlagsOnIndividualsData(flagsOnIndividualsData);
+				status++;
+				checkStatus();
+			}
+			
+			private function getLODQueriesHandler(event:ResultEvent):void{
+				var lodQueriesData:String = ObjectUtil.toString(event.result);
+				lodQueries = new Array();
+				lodQueries = dataParser.parseLodQueriesData(lodQueriesData);
+				status++
+					checkStatus();
+			}
+ 			
+			private function faultHandler(evt:FaultEvent):void{
+	 			trace(evt.toString());
+	 			//webService.writeLog.send(FaultEvent.FAULT);
+	 			// Changing view to see message errors. Has the Control this role?		
+	 		}
+	 		
+	 		private function checkStatus():void{
+	 			if((isDbModuleActive && status==7) || (!isDbModuleActive && status==5)){
+	 				trace("Loading status: ok!");
+					loadIndicator.destroy();
+					stage.scaleMode = StageScaleMode.NO_SCALE;
+					stage.align = StageAlign.TOP_LEFT;
+	 				var classGraph:ClassGraph = new ClassGraph(this);
+	 				classGraph.createStructure();
+	 				mainView = new MainView(classGraph,stage);
+					mainView.setClassGraphView();
+					mainView.x = stage.width/2-250;
+					mainView.y = stage.height/2-250;
+					changeViewController = new ChangeViewController(mainView,this);
+					stage.addChild(mainView);
+	 			}
+	 		}
+	 		
+/** ______________________________________ Getters & Setters ______________________________________________________ **/
+			
+			public function get classes():Array{
+				return _classes;
+			}
+			
+			public function set classes(cl:Array):void{
+				_classes = cl;
+			}
+			
+			public function get individuals():Array{
+				return _individuals;
+			}
+			
+			public function set individuals(ind:Array):void{
+				_individuals = ind;
+			}
+			
+			public function get relations():Array{
+				return _relations;
+			}
+			
+			public function set relations(rel:Array):void{
+				_relations = rel;
+			}
+			
+			public function get labels():Array{
+				return _labels;
+			}
+			
+			public function set labels(lab:Array):void{
+				_labels = lab;
+			}
+			
+			public function get individualsProp():Array{
+				return _individualsProp;
+			}
+			
+			public function set individualsProp(indProp:Array):void{
+				_individualsProp = indProp;
+			}
+			
+			public function get flagsOnIndividuals():Array{
+				return _flagsOnIndividuals;
+			}
+			
+			public function set flagsOnIndividuals(foi:Array):void{
+				_flagsOnIndividuals = foi;
+			}
+			
+			public function get lodQueries():Array{
+				return _lodQueries
+			}
+			
+			public function set lodQueries(lo:Array){
+				_lodQueries = lo;
+			}
+			
+			public function get isDbModuleActive():Boolean{
+				return _isDbModuleActive;
+			}
+			
+			public function set isDbModuleActive(idma:Boolean){
+				_isDbModuleActive = idma;
+			}
+			
+		]]>
+		
+	</mx:Script>		
+</mx:Application>

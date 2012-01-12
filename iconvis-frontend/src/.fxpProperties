@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fxpProperties abbreviated="false" authoringTool="Flex Builder" compiles="true" parentProject="101476f4-b691-4354-bae1-d588d0e8f761" projectUUID="101476f4-b691-4354-bae1-d588d0e8f761" sdkVersion="3.0.0" uuid="4f15b878-b784-4be9-89ae-f428059dd91e" version="4">
+  <projects>
+    <project filename="flare.fxpl" position="2" projectUUID="ca6a81e8-412f-4b61-8efd-65e8ba6806d5" uuid="4f15b878-b784-4be9-89ae-f428059dd91e"/>
+  </projects>
+  <src/>
+  <swc>
+    <linked location="sdkPlaceHolder" path="sdkPlaceHolder" position="0" uuid="4f15b878-b784-4be9-89ae-f428059dd91e"/>
+    <linked location="C:/Users/Giuseppe/Documents/Flex Builder 3/Iconvis-to-release/libs" path="/libs" position="1" uuid="4f15b878-b784-4be9-89ae-f428059dd91e"/>
+    <linked location="C:/Users/Giuseppe/Desktop/yahoo-maps-as3-api-0.9.2.1-beta/yahoo-maps-as3-api-0.9.2.1-beta/Build/YahooMap.swc" path="/linked-swc/YahooMap.swc" position="3" uuid="4f15b878-b784-4be9-89ae-f428059dd91e"/>
+  </swc>
+  <misc/>
+  <theme/>
+</fxpProperties>
