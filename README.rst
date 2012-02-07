@@ -1,7 +1,8 @@
-ICONVIS (Interactive and Customizable ONtology-based VIsualization System)
-==========================================================================
+ICONVIS
+=======
 
-ICONVIS is a Rich Internet Application that allows to display and
+ICONVIS (Interactive and Customizable ONtology-based VIsualization
+System) is a Rich Internet Application that allows to display and
 browse structured data in the form of an ontology. The ontology in
 input to the system is designed based on the most significant values
 of a data source, so it is a representation of the overall knowledge
